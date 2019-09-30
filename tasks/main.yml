@@ -15,6 +15,7 @@
     dest={{ nrpe_plugins_dir }}/{{ item.name }}
     owner=root group=root mode=0755
   with_items: nrpe_plugins
+  when: nrpe_plugin is defined
 
 - name: register list of core plugins
   command: ls /usr/lib/nagios/plugins
